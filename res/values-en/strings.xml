@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <!-- Application name -->
+    <string name="application_name" translateable="false">Filemanager</string>
+    <!-- Application copyright -->
+    <string name="application_copyright">Copyright \u00A9 CyanogenMod 2012</string>
+    <!-- Application version -->
+    <string name="application_version">0.0.1</string>
+
+    <!-- Misc Strings -->
+    <string name="copy">Copy</string>
+    <string name="cut">Cut</string>
+    <string name="paste">Paste</string>
+    <string name="move">Move</string>
+    <string name="delete">Delete</string>
+    <string name="delete_confirm">Confirm Deletion</string>
+    
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="cancel">Cancel</string> 
+    
+</resources>
