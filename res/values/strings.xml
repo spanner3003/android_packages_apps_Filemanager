@@ -8,9 +8,10 @@
     <!-- Application version -->
     <string name="application_version">0.0.1</string>
 
-    
      <!-- Main -->
     <string name="main_menu_title">Menu</string>
+    <string name="locations">Locations</string>
+    <string name="settings">Settings</string>
     
     <!-- Misc Strings -->
     <string name="copy">Copy</string>
