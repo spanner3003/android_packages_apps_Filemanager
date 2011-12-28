@@ -8,6 +8,8 @@ import android.os.Environment;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnKeyListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.EditText;
 import android.widget.GridView;
 
@@ -35,6 +37,13 @@ public class FilemanagerActivity extends Activity {
 			}
 		});
 
+		final GridView gridView = (GridView) findViewById(R.id.fileGrid);
+		gridView.setOnItemClickListener(new OnItemClickListener() {
+			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
+					long arg3) {
+				File file = new File((String) arg1.getTag());
+				if(file.isDirectory())
+					setPath(file.getAbsolutePath());
 			}
 		});
 
@@ -58,7 +67,8 @@ public class FilemanagerActivity extends Activity {
 	}
 
 	private void updateGrid() {
-		FileSystemAdapter fsa = new FileSystemAdapter(this, mCurrentFile.getAbsolutePath());
+		FileSystemAdapter fsa = new FileSystemAdapter(this,
+				mCurrentFile.getAbsolutePath());
 		GridView gridView = (GridView) findViewById(R.id.fileGrid);
 		gridView.setAdapter(fsa);
 	}

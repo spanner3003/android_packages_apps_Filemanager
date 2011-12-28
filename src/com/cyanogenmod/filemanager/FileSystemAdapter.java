@@ -61,32 +61,31 @@ public class FileSystemAdapter extends BaseAdapter {
 
 	public View getView(int position, View convertView, ViewGroup parent) {
 		TextView view;
-		
-		if(convertView != null) {
-			view = (TextView)convertView;
-		} else {
+
+		if (convertView != null)
+			view = (TextView) convertView;
+		else {
 			LayoutInflater li = ((Activity) mContext).getLayoutInflater();
 			view = (TextView) li.inflate(R.layout.icon, null);
 		}
-		
+
 		File file = mFilesInFile.get(position);
 		view.setText(file.getName());
+		view.setTag(file.getAbsolutePath());
 
 		int resId;
-		if (file.isDirectory())
-			if (file.getName().equals(Environment.DIRECTORY_MUSIC)) {
+		if (file.isDirectory()) {
+			if (file.getName().equals(Environment.DIRECTORY_MUSIC))
 				resId = R.drawable.folder_music;
-			} else if (file.getName()
-					.equals(Environment.DIRECTORY_PICTURES)) {
+			else if (file.getName().equals(Environment.DIRECTORY_PICTURES))
 				resId = R.drawable.folder_image;
-			} else if (file.getName().equals(Environment.DIRECTORY_MOVIES)) {
+			else if (file.getName().equals(Environment.DIRECTORY_MOVIES))
 				resId = R.drawable.folder_video;
-			} else {
+			else
 				resId = R.drawable.folder;
-			}
-		else
+		} else
 			resId = R.drawable.file;
-		
+
 		Drawable icon = mContext.getResources().getDrawable(resId);
 		view.setCompoundDrawablesWithIntrinsicBounds(null, icon, null, null);
 
