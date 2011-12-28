@@ -8,7 +8,6 @@ import android.os.Environment;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnKeyListener;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
 
@@ -36,19 +35,9 @@ public class FilemanagerActivity extends Activity {
 			}
 		});
 
-		Button button = (Button) findViewById(R.id.sdcardButton);
-		button.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				setPath(Environment.getExternalStorageDirectory().getAbsolutePath());
 			}
 		});
 
-		button = (Button) findViewById(R.id.rootButton);
-		button.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				setPath("/");
-			}
-		});
 	}
 
 	@Override

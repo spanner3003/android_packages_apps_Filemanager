@@ -4,26 +4,6 @@
     android:layout_height="fill_parent"
     android:orientation="vertical" >
 
-    <TableRow
-        android:id="@+id/quickButtons"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-
-        <Button
-            android:id="@+id/sdcardButton"
-            android:layout_width="0dip"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/sdcard" />
-
-        <Button
-            android:id="@+id/rootButton"
-            android:layout_width="0dip"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/root" />
-    </TableRow>
-
     <GridView
         android:id="@+id/fileGrid"
         android:layout_width="wrap_content"

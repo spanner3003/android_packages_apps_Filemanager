@@ -25,6 +25,5 @@
     <string name="cancel">Cancel</string>
     <string name="sdcard">SDCard</string>
     <string name="root">Root</string>
-    <string name="pathRoot">/</string> 
     
 </resources>
