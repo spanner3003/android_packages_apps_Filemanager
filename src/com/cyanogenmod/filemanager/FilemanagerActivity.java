@@ -5,9 +5,9 @@ import java.io.File;
 import android.app.Activity;
 import android.os.Bundle;
 import android.os.Environment;
-import android.text.Editable;
-import android.text.TextWatcher;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.View.OnKeyListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
@@ -21,27 +21,18 @@ public class FilemanagerActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
 
-		EditText pathField = (EditText) findViewById(R.id.pathEdit);
+		final EditText pathField = (EditText) findViewById(R.id.pathEdit);
 		pathField.setText(mCurrentFile.getAbsolutePath());
-		pathField.addTextChangedListener(new TextWatcher() {
-			String oldText = new String();
-
-			public void afterTextChanged(Editable s) {
-				if (isPathValid(s.toString()))
-					setPath(s.toString());
-				else {
-					EditText pathField = (EditText) findViewById(R.id.pathEdit);
-					pathField.setText(oldText);
+		pathField.setOnKeyListener(new OnKeyListener() {
+			public boolean onKey(View v, int keyCode, KeyEvent event) {
+				if ((event.getAction() == KeyEvent.ACTION_DOWN)
+						&& (keyCode == KeyEvent.KEYCODE_ENTER)) {
+					String text = pathField.getText().toString();
+					if (isPathValid(text))
+						setPath(text);
+					return true;
 				}
-			}
-
-			public void beforeTextChanged(CharSequence s, int start, int count,
-					int after) {
-				oldText = s.toString();
-			}
-
-			public void onTextChanged(CharSequence s, int start, int before,
-					int count) {
+				return false;
 			}
 		});
 
